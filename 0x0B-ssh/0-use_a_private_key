@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Utilise ssh pour se connecter au serveur en utilisant la clé privée ~/.ssh/school
+# avec l'utilisateur ubuntu.
+
+# Le drapeau "-i" est utilisé pour spécifier le fichier d'identité (clé privée).
+ssh -i ~/.ssh/school ubuntu@172.29.2.78
