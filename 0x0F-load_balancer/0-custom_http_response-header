@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Script that configures Nginx server with a custom header
+sudo apt-get update
+sudo apt-get install -y nginx
+sudo sh -c 'echo "Wach A Wala" > /var/www/html/index.nginx-debian.html'
+sudo sh -c "echo \"Ceci n'est pas une page\" > /var/www/html/404.html"
+sudo sed -i '/^http {/a \    error_page 404 404.html;' /etc/nginx/nginx.conf
+sudo sed -i '/^http {/a\    addd_header X-Served-By $hostname;' /etc/nginx/nginx.conf
+sudo service nginx restart
